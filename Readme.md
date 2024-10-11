@@ -1,1 +1,7 @@
-#chai aur backend
+
+
+import mongoose from "mongoose";
+
+function connectDB(){
+
+} 
