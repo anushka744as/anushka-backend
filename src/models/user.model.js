@@ -3,7 +3,8 @@ import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 
 
-const userSchema =new Schema({
+const userSchema =new Schema(
+    {
 username: {
     type: String,
     required: true,
@@ -27,10 +28,10 @@ fullName: {
 },
 avatar:{
     type: String,  // cloudinary url
-    required: true
+    required: true,
 },
 coverImage: {
-    type: String 
+    type: String,
 },
 watchHistory: [
     {
@@ -44,10 +45,11 @@ watchHistory: [
  },
  refreshToken: {
     type: String
- },
+ }
+},
+{
   timestamps: true
-
-})
+});
 
 userSchema.pre("save", async function (next){
     if(!this.isModified("password")) return next()
